@@ -1,0 +1,44 @@
+%kcomplex and spindles detection + loop subject list
+clear;clc;close all;tic
+% parametres 
+fs=1000;
+test=1;
+electrode='C3';
+epoch_length=30;
+kp_thr=-70;
+sp_thr=290;
+if test==1
+    subj_list={'s3'};
+    else  
+        subj_list={'s3','s5','s6','s7','s8','s9','s11','s12',...
+            's13','s15','s17','s19','s20','s21','s22','s24','s25','s26','s27'...
+             ,'s28','s30','s31','s32','s34','s36','s38'};
+end
+
+
+for i=1:length(subj_list)
+    
+    %load files (EEG data)
+
+    filename=[pwd '/data/' subj_list{i} '_sleep.mat'];
+    load (filename);
+    
+    %select electrode (C3 =4, C4=5, Cz=1)
+  switch electrode
+      case 'C3'
+          data=m_data(4,:);
+      case 'C4'
+          data=m_data(5,:);
+      case 'Cz' 
+          data=m_data(1,:);
+  end
+  
+%data epoching (30 sec)
+
+[seg]=data_epoching(data,fs,epoch_length);
+[transit,oscil] = signal_decomposition(seg{57},fs);
+end
+
+figure;
+plot(transit)
+figure;plot(oscil)
