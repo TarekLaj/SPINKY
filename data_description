@@ -1,0 +1,8 @@
+
+training_data.mat: 120 secondes of EEG data (C3 channel) 
+test_data.60 secondes of C3 channel 
+
+both data set are sampled at 1000 Hz 
+
+ 
+
