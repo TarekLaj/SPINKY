@@ -1,4 +1,4 @@
-function varargout = SPINKY(varargin)
+function varargout = spinky(varargin)
 % SPINKY MATLAB code for SPINKY.fig
 %      SPINKY, by itself, creates a new SPINKY or raises the existing
 %      singleton*.
@@ -28,8 +28,8 @@ function varargout = SPINKY(varargin)
 gui_Singleton = 1;
 gui_State = struct('gui_Name',       mfilename, ...
                    'gui_Singleton',  gui_Singleton, ...
-                   'gui_OpeningFcn', @SPINKY_OpeningFcn, ...
-                   'gui_OutputFcn',  @SPINKY_OutputFcn, ...
+                   'gui_OpeningFcn', @spinky_OpeningFcn, ...
+                   'gui_OutputFcn',  @spinky_OutputFcn, ...
                    'gui_LayoutFcn',  [] , ...
                    'gui_Callback',   []);
 if nargin && ischar(varargin{1})
@@ -45,7 +45,7 @@ end
 
 
 % --- Executes just before SPINKY is made visible.
-function SPINKY_OpeningFcn(hObject, eventdata, handles, varargin)
+function spinky_OpeningFcn(hObject, eventdata, handles, varargin)
 % This function has no output args, see OutputFcn.
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
@@ -64,7 +64,7 @@ imshow('logo.jpg', 'Parent', handles.axes1)
 
 
 % --- Outputs from this function are returned to the command line.
-function varargout = SPINKY_OutputFcn(hObject, eventdata, handles) 
+function varargout = spinky_OutputFcn(hObject, eventdata, handles) 
 % varargout  cell array for returning output args (see VARARGOUT);
 % hObject    handle to figure
 % eventdata  reserved - to be defined in a future version of MATLAB
