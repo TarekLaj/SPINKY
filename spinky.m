@@ -22,7 +22,7 @@ function varargout = spinky(varargin)
 
 % Edit the above text to modify the response to help SPINKY
 
-% Last Modified by GUIDE v2.5 29-Jul-2016 23:05:00
+% Last Modified by GUIDE v2.5 27-Sep-2016 12:17:25
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -92,3 +92,24 @@ switch mode % Get Tag of selected object.
         visual_correction;delete(visual_scoring);delete(AutoDetection);
    
 end
+
+
+% --------------------------------------------------------------------
+function about_menu_Callback(hObject, eventdata, handles)
+% hObject    handle to about_menu (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+About
+
+% --------------------------------------------------------------------
+function Untitled_1_Callback(hObject, eventdata, handles)
+% hObject    handle to Untitled_1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+
+% --------------------------------------------------------------------
+function context_Callback(hObject, eventdata, handles)
+% hObject    handle to context (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)

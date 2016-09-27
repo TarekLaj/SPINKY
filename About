@@ -1,0 +1,11 @@
+
+spinky is a Matlab graphic user interface environment for Kcomplex and Sleep Spindles detection incorporating the TQWT/MCA toolbox (Selesnick et al.2011). 
+Released 09/2016- as spinky (Lajnef, O'reilly et al.) 
+ 
+For personnal, educationnal, and research purpose, this software is provided under the Gnu GPL (V.3) license. To use this software in commercial application, please contact the author.
+
+We would like to thank Dr. Ivan Selesnick for the open acces TQWT/MCA tool. 
+
+Author: Lajnef Tarek (lajnef.tarek@gmail.com) 
+University of Montreal
+Date: Septembre 26, 2016
