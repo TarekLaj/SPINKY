@@ -50,18 +50,18 @@ switch detection_mode
     case 'spindles' 
     [sp_optimal_thresh] = sp_train(oscil,varargin{1},fs,varargin{2},varargin{3});
     varargout{1}=sp_optimal_thresh;
-    fprintf('The optimal threshold for spindles detection is %i µVolt²',sp_optimal_thresh);
+    fprintf('The optimal threshold for spindles detection is %i uVolt^2',sp_optimal_thresh);
     case 'kcomplex'
     [kp_optimal_thresh] = kp_train(transit,varargin{1},fs,varargin{2},varargin{3});
     varargout{1}=kp_optimal_thresh;
-    fprintf('The optimal threshold for kcomplex detection is %i µVolt',kp_optimal_thresh);
+    fprintf('The optimal threshold for kcomplex detection is %i uVolt',kp_optimal_thresh);
      case 'both'
     [sp_optimal_thresh] = sp_train(oscil,varargin{1},fs,varargin{2},varargin{5});
     [kp_optimal_thresh] = kp_train(transit,varargin{3},fs,varargin{4},varargin{5});
     varargout{1}=sp_optimal_thresh;
     varargout{2}=kp_optimal_thresh;
-     fprintf('The optimal threshold for spindles detection is %i µVolt² \n',sp_optimal_thresh);
-     fprintf('The optimal threshold for kcomplex detection is %i  µVolt \n',kp_optimal_thresh);
+     fprintf('The optimal threshold for spindles detection is %i uVolt^2 \n',sp_optimal_thresh);
+     fprintf('The optimal threshold for kcomplex detection is %i  uVolt \n',kp_optimal_thresh);
 end
 end
 
