@@ -5,12 +5,7 @@
 
 %% Input 
 % * expert_score: visual score provided by an expert 
-% * detection_auto: automatic detection resulting from TQWT & MCA method 
 
-%% Output 
-% * Sen: sensitivty value 
-% * FDR: False Detection Rate value 
-%% Code
 
 
 

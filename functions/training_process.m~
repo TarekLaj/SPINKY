@@ -18,11 +18,11 @@
 %% 
 % varargin depending on detection mode varargin must be : 
 %%
-% * sp_thresh,sp_train_score if detection mode = 'spindles'
+%  * sp_thresh,sp_train_score if detection mode = 'spindles'
 %%
 % * kp_thresh,kp_train_score if detection mode= 'kcomplex' 
 %%
-% * sp_thresh,sp_train_score, kp_thresh,kp_train_score if detection mode = 'both'
+%  * sp_thresh,sp_train_score, kp_thresh,kp_train_score if detection mode = 'both'
 %%
 %  where: 
 %       sp_thresh is the threshold range for spindles detection
@@ -32,8 +32,8 @@
 %%
 %  Important: 
 %
-% * These vaules must be defined /loaded previously in the script 
-% * They must be put in the correct order 
+%   # These vaules must be defined /loaded previously in the script 
+%   # They must be put in the correct order 
 
 %%  Output
 %
@@ -42,17 +42,17 @@
 %  # "sp_optimal_thresh" and/or "kp_optimal_thresh" which are the optimal thresholds values computed in the training process 
 %
 
-%% Code
+
 function [varargout] = training_process(data,fs,detection_mode,varargin)
-%%
-% TQWT decomposition
+
+
+%% TQWT decomposition
 display('signal decomposition....')
 for j=1:length(data)
     [transit{j},oscil{j}]=signal_decomposition(data{j},fs);
 end
 
-%%
-% Training and threshold choice
+%% Training and threshold choice
 display('Optimal threshold selection...')
 switch detection_mode
     case 'spindles' 
@@ -75,6 +75,3 @@ end
 
 %% Example
 %  [op_thr_sp,op_thr_kp] = training_process(train_data,fs,detection_mode,sp_thresh,sp_train_score,kp_thresh,kp_train_score);
-%%
-% See also
-% <matlab:doc('sp_train') sp_train> <matlab:doc('kp_train') kp_train>  
