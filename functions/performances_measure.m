@@ -31,10 +31,10 @@ TP=0;FP=0;FN=0;
           TP=TP+y;
       end
  end
-TN=length(find(expert_score==0 & detection_auto==0));
+%TN=length(find(expert_score==0 & detection_auto==0));
 Sen=100.*(TP/(TP+FN));
 FDR=100.*(FP/(FP+TP));
-Sp=100.*(TN/(TN+FP));
-Perf={'Tp' 'Fp' 'FN' 'TN';TP FP FN TN};
+%Sp=100.*(TN/(TN+FP));
+%Perf={'Tp' 'Fp' 'FN' 'TN';TP FP FN TN};
 end
 
