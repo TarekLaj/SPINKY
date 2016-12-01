@@ -1,99 +1,101 @@
 %% Scirpt Version Of spinky toolbox
-% This script uses "spinky" toolbox to detect spindles and/or kcomplex on EEG data 
+% This script uses "spinky" toolbox to automatically detect spindles and/or kcomplex on EEG data 
 % For more details about the method please refer to our papers 
 %
 % # Lajnef, T., Chaibi, S., Eichenlaub, J. B., Ruby, P. M., Aguera, P. E., Samet, M.Kachouri A  Jerbi, K. (2015).Sleep spindle and K-complex detection using tunable Q-factor wavelet transform and morphological component analysis. Frontiers in human neuroscience,9.
 % # Lajnef,T. O'reilly C, Coombrisson E, Chaibi S, Eichenlaub J.B, Ruby, P M,Aguera P.E Samet, M. Kachouri A, Frenette S,  Carrier J, Jerbi, K. (2016) Meet Spinky: An open-source Spindle and K-complex detection toolbox validated on the open-access Montreal Archive of Sleep Studies (MASS) (under review)
 
-%%
-clear 
-clc
-
 %% Parameters 
-%% 
 % _epoch_length_ : Data window (sec); This is often the duration of an epoch used for e.g. in sleep staging, i.e. 30s or 20s
-%  Example
-epoch_length=30; 
 %%
 % _fs_ : Sampling frequency (Hz)
-%  Example
-fs=1000;         
 %% 
 % _detection_mode_ : Select what event you want to detect
 % # 'kcopmlex' to detect only kcopmlex 
 % # 'spindles' to detect only spindles events
 % # 'both' to detect spindles and kcomplex
-
-detection_mode='spindles';  
-
 %%
-% _subj_name_ : Subject or data name; this value will be the name of the text file in which automatic detection results will be saved                           
-subj_name='subject1_sc';         
+% _subj_name_ : Subject or data name; this value will be the name of the text file in which automatic detection results will be saved 
 %%
-%  _user_defined_thresholds_4_ROC_ : This parametre define the way you choose to select the optimal threshold: 
-%%
+% _user_defined_thresholds_4_ROC_ : This parametre define the way you choose to select the optimal threshold: 
+%
 % * 0 if you wish to estimate thresholds range based on data properties.
 % * 1 if you wish to define your own range
-user_defined_thresholds_4_ROC =0;   
 %%
-% _sp_thresh_user and/ or kp_thresh_user_ : 
-% Manually selected spindle and/ or kcomplex thresholds ranges which will be used in the training porcess (ROC generation) 
-sp_thresh_user=280:5:300;              
-%% 
-% _train_data_file_ :
-% Training data loading format required: (1xN) vector EEG training data for one channel (e.g time series for channel C3) 
+% _sp_thresh_user and/ or kp_thresh_user_ :  Manually selected spindle and/ or kcomplex thresholds ranges which will be used in the training porcess (ROC generation) 
+% example: sp_thresh_user=280:5:300;   
+%%
+% _train_data_file_:  Training data loading format required: (1xN) vector EEG training data for one channel (e.g time series for channel C3) 
+%%
 % 'kcomplex_visual_score' and/or 'spindles_visual_score' .mat file path containing the number of kcomplex visually marked by an expert in each segment of data (duration defined by param "epoch_length", eg. 30s);       
-train_data_file='training_data.mat';
-%kcomplex_visual_score='Spindles_visual_score_training_data.txt';   
-spindles_visual_score='Spindles_visual_score_training_data.txt';
 %%
 % _test_data_file_ :
 % .mat file containing EEG data of one subject and one electrode (1xN vector) 
-test_data_file='test_data.mat';        
 
-%% Load training data and visual scores 
-%  load training epochs for Spindles and/or K-complexes
+%% Outputs
+% This script will generate one or two text files (depending on detection_mode option) containing the automatic detection results: 
+%
+% * score_auto_spindles_subjectx.txt
+% * score_auto_kcomplex_subjectx.txt
+
+
+%% Example
+% Set parametres 
+clear 
+clc
+epoch_length=30; 
+fs=1000;         
+detection_mode='spindles';  
+subj_name='subject1';         
+user_defined_thresholds_4_ROC =0;   
+train_data_file='training_data.mat';
+spindles_visual_score='Spindles_visual_score_training_data.txt';
+test_data_file='test_data.mat';        
+%%
+%  Load training data and visual scores 
+%
  x=load(train_data_file);  
  X=fieldnames(x);
  train_data=x.(X{1});    
- 
  tr_data=data_epoching(train_data,fs*epoch_length); 
-
-%%
-%  load data for visual score corresponding to the previously loaded training data
-% y=load(kcomplex_visual_score);
-% Y=fieldnames(y);
-% kp_train_score=y.(Y{1});
-z=load(spindles_visual_score);
-sp=z(:,1);
-sp_train_score=zeros(1,length(tr_data));
-[uV,aa] = unique(sp(:,1));
-[~,iV] = sort(aa);
-nV = histc(sp(:,1),uV);
-sp_train_score(uV(iV))=nV(iV);
-
+ [sp_train_score] = load_visual_score(spindles_visual_score,length(tr_data));
 %% 
-%  Define the threshold range that will be used to generate the pseudo ROC
+% Define the threshold range that will be used to generate the pseudo ROC
 if (user_defined_thresholds_4_ROC)==1
-    sp_thresh=sp_thresh_user;  
-    %kp_thresh=kp_thresh_user; 
+    switch detection_mode
+        case 'spindles'
+           sp_thresh=sp_thresh_user;
+        case 'kcomplex' 
+           kp_thresh=kp_thresh_user; 
+        case 'both'
+           sp_thresh=sp_thresh_user;
+           kp_thresh=kp_thresh_user; 
+    end
 else
-    %[kp_thresh] =kp_thresholds_ranges(train_data,fs);
-    [sp_thresh] =sp_thresholds_ranges(tr_data,fs);
+    switch detection_mode
+        case 'spindles'
+            [sp_thresh] =sp_thresholds_ranges(tr_data,fs);
+        case 'kcomplex' 
+            [kp_thresh] =kp_thresholds_ranges(tr_data,fs);
+        case 'both'
+            [kp_thresh] =kp_thresholds_ranges(tr_data,fs);
+            [sp_thresh] =sp_thresholds_ranges(tr_data,fs);
+    end    
 end
 
-%% Optimal threshold selection using pseudo ROC curve on "training data"
-[op_thr_sp] = training_process(tr_data,fs,detection_mode,sp_thresh,sp_train_score,'On');
-%% Use selected threshold on remaining data ("test" set)
-  % Load the data set for automatic detection
-
+%% 
+% Optimal threshold selection using pseudo ROC curve on "training data"
+[op_thr_sp] = training_process(tr_data,fs,detection_mode,sp_thresh,sp_train_score,'Off');
+%% 
+% Use selected threshold on remaining data ("test" set)
+%
+% * Load the data set for automatic detection
 x=load(test_data_file); 
 X=fieldnames(x);
 data=x.(X{1});
 test_d=data_epoching(data,fs*epoch_length);
 %%
-% Event detection on test data
-
+% * spindles detection on test data
 [nbr_sp,pos_sp]=test_process(test_d,fs,subj_name,detection_mode,op_thr_sp);
 
 
