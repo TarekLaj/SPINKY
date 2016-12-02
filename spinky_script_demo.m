@@ -17,7 +17,7 @@
 %%
 % _subj_name_ : Subject or data name; this value will be the name of the text file in which automatic detection results will be saved 
 %%
-%  _user_defined_thresholds_4_ROC_ : This parametre define the way you choose to select the optimal threshold: 
+% _user_defined_thresholds_4_ROC_ : This parametre define the way you choose to select the optimal threshold: 
 %
 % * 0 if you wish to estimate thresholds range based on data properties.
 % * 1 if you wish to define your own range
@@ -33,10 +33,14 @@
 % .mat file containing EEG data of one subject and one electrode (1xN vector) 
 
 %% Outputs
-% This script will generate depending on detection_mode option : 
-% * score_auto_spindles_subject
+% This script will generate one or two text files (depending on detection_mode option) containing the automatic detection results: 
+%
+% * score_auto_spindles_subjectx.txt
+% * score_auto_kcomplex_subjectx.txt
+
 
 %% Example
+% Set parametres 
 clear 
 clc
 epoch_length=30; 
@@ -54,9 +58,7 @@ test_data_file='test_data.mat';
  X=fieldnames(x);
  train_data=x.(X{1});    
  tr_data=data_epoching(train_data,fs*epoch_length); 
-%
-% load visual score corresponding to the previously loaded training data
-[sp_train_score] = load_visual_score(spindles_visual_score,length(tr_data));
+ [sp_train_score] = load_visual_score(spindles_visual_score,length(tr_data));
 %% 
 % Define the threshold range that will be used to generate the pseudo ROC
 if (user_defined_thresholds_4_ROC)==1
@@ -87,13 +89,13 @@ end
 %% 
 % Use selected threshold on remaining data ("test" set)
 %
-% Load the data set for automatic detection
+% * Load the data set for automatic detection
 x=load(test_data_file); 
 X=fieldnames(x);
 data=x.(X{1});
 test_d=data_epoching(data,fs*epoch_length);
 %%
-% spindles detection on test data
+% * spindles detection on test data
 [nbr_sp,pos_sp]=test_process(test_d,fs,subj_name,detection_mode,op_thr_sp);
 
 
