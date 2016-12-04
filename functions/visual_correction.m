@@ -969,15 +969,21 @@ while ischar(tline)
 end
 
 fclose(fid);
+
 for j=1:length(m)
     A=m{j};
     if size(A,1)>2
-    M{j}=A(3:end)*fs;
+     zind=find(A(3:end)==0);
+    mat=A(3:end);
+    mat(zind)=0.001;
+     M{j}=mat*fs;   
+        
     nbrsp{j}=A(2);
     else
     M{j}=[];nbrsp{j}=0;
     end
 end
+
 
 for jj=1:length(M) 
     H=M{jj};
@@ -986,6 +992,7 @@ for jj=1:length(M)
     else
         tab=zeros(1,N);
         for kk=1:length(H)/2
+           
             tab(H(2*kk-1):H(2*kk))=1;
         end
         possp{jj}=tab;
