@@ -1,0 +1,197 @@
+<deployment-project plugin="plugin.toolbox" plugin-version="1.0">
+  <configuration build-checksum="2200496991" file="/home/karim/SPINKY/spinky.prj" location="/home/karim/SPINKY" name="spinky" target="target.toolbox" target-name="Package Toolbox">
+    <param.appname>spinky</param.appname>
+    <param.authnamewatermark>Lajnef Tarek</param.authnamewatermark>
+    <param.email>lajnef.tarek@gmail.com</param.email>
+    <param.company>CocoLab</param.company>
+    <param.summary />
+    <param.description>Spinky is a new tool for Kcomplex and sleep spindles detection on EEG data, the tool box includes three options 
+
+1. Use a Matlab GUI &lt;spinky&gt; for non experts on matlab scripts (see How to use spinky GUI.pdf file)
+
+2. Use the script version 'spinky_script.m' (see help folder) 
+
+3. Use the python notebook availble in  &lt; https://github.com/christian-oreilly/spinkyDemo &gt;</param.description>
+    <param.screenshot>${PROJECT_ROOT}/functions/logo.jpg</param.screenshot>
+    <param.version>1.0</param.version>
+    <param.output>${PROJECT_ROOT}/spinky.mltbx</param.output>
+    <param.products.name>
+      <item>MATLAB</item>
+      <item>Signal Processing Toolbox</item>
+      <item>Wavelet Toolbox</item>
+    </param.products.name>
+    <param.products.id>
+      <item>1</item>
+      <item>8</item>
+      <item>35</item>
+    </param.products.id>
+    <param.products.version>
+      <item>8.5</item>
+      <item>7.0</item>
+      <item>4.14.1</item>
+    </param.products.version>
+    <param.platforms />
+    <param.guid>892bd522-f991-4236-9b3b-7ce36b02d9b2</param.guid>
+    <param.exclude.filters />
+    <param.examples>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;examples&gt;
+   &lt;exampleCategory name="tqwt_matlab_toolbox"&gt;
+      &lt;example name="demo1" type="html"&gt;
+         &lt;file type="source"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/demo1.html&lt;/file&gt;
+         &lt;file type="main"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/demo1.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/demo1_01.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/demo1_02.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/demo1_radix2_01.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/demo1_radix2_02.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="demo1_radix2" type="html"&gt;
+         &lt;file type="source"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/demo1_radix2.html&lt;/file&gt;
+         &lt;file type="main"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/demo1_radix2.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/demo1_radix2_01.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/demo1_radix2_02.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="resonance_demo" type="html"&gt;
+         &lt;file type="source"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/resonance_demo.html&lt;/file&gt;
+         &lt;file type="main"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/resonance_demo.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/resonance_demo_01.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/resonance_demo_02.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/resonance_demo_03.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/resonance_demo_04.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/resonance_demo_05.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/resonance_demo_06.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/resonance_demo_noisy_01.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/resonance_demo_noisy_02.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/resonance_demo_noisy_03.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/resonance_demo_noisy_04.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="resonance_demo_noisy" type="html"&gt;
+         &lt;file type="source"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/resonance_demo_noisy.html&lt;/file&gt;
+         &lt;file type="main"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/resonance_demo_noisy.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/resonance_demo_noisy_01.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/resonance_demo_noisy_02.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/resonance_demo_noisy_03.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/resonance_demo_noisy_04.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="sparsity_demo" type="html"&gt;
+         &lt;file type="source"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/sparsity_demo.html&lt;/file&gt;
+         &lt;file type="main"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/sparsity_demo.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/sparsity_demo_01.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/sparsity_demo_02.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/sparsity_demo_03.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/sparsity_demo_04.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/sparsity_demo_05.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/sparsity_demo_06.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/sparsity_demo_07.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/sparsity_demo_08.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/sparsity_demo_09.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/sparsity_demo_10.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/sparsity_demo_11.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/sparsity_demo_12.png&lt;/file&gt;
+         &lt;file type="image"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/sparsity_demo_13.png&lt;/file&gt;
+      &lt;/example&gt;
+      &lt;example name="test_PR" type="html"&gt;
+         &lt;file type="source"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/test_PR.html&lt;/file&gt;
+         &lt;file type="main"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/test_PR.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="test_PR_radix2" type="html"&gt;
+         &lt;file type="source"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/html/test_PR_radix2.html&lt;/file&gt;
+         &lt;file type="main"&gt;/functions/tqwt_matlab_toolbox/tqwt_matlab_toolbox/test_PR_radix2.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+   &lt;/exampleCategory&gt;
+&lt;/examples&gt;</param.examples>
+    <param.demosxml />
+    <param.apps />
+    <param.docs>${PROJECT_ROOT}/info.xml</param.docs>
+    <unset>
+      <param.summary />
+      <param.version />
+      <param.output />
+      <param.platforms />
+      <param.exclude.filters />
+      <param.demosxml />
+      <param.apps />
+    </unset>
+    <fileset.rootdir>
+      <file>/home/karim/SPINKY</file>
+    </fileset.rootdir>
+    <fileset.rootfiles>
+      <file>${PROJECT_ROOT}/.git</file>
+      <file>${PROJECT_ROOT}/How to use spinky.pdf</file>
+      <file>${PROJECT_ROOT}/LICENSE.txt</file>
+      <file>${PROJECT_ROOT}/README.md</file>
+      <file>${PROJECT_ROOT}/Spindles_visual_score_test_data.txt</file>
+      <file>${PROJECT_ROOT}/Spindles_visual_score_training_data.txt</file>
+      <file>${PROJECT_ROOT}/demos.xml</file>
+      <file>${PROJECT_ROOT}/functions</file>
+      <file>${PROJECT_ROOT}/help</file>
+      <file>${PROJECT_ROOT}/info.xml</file>
+      <file>${PROJECT_ROOT}/matlab_dreams.m~</file>
+      <file>${PROJECT_ROOT}/spindles_and_kcomplex_script.m~</file>
+      <file>${PROJECT_ROOT}/spinky.fig</file>
+      <file>${PROJECT_ROOT}/spinky.m</file>
+      <file>${PROJECT_ROOT}/spinky_script.m</file>
+      <file>${PROJECT_ROOT}/spinky_script_demo.m</file>
+      <file>${PROJECT_ROOT}/test_data.mat</file>
+      <file>${PROJECT_ROOT}/test_viso.m~</file>
+      <file>${PROJECT_ROOT}/training_data.mat</file>
+    </fileset.rootfiles>
+    <fileset.depfun.included />
+    <fileset.depfun.excluded />
+    <fileset.package />
+    <build-deliverables>
+      <file location="/home/karim/SPINKY" name="spinky.mltbx" optional="false">/home/karim/SPINKY/spinky.mltbx</file>
+    </build-deliverables>
+    <workflow />
+    <matlab>
+      <root>/home/karim/MATLAB</root>
+      <toolboxes>
+        <toolbox name="matlabhdlcoder" />
+        <toolbox name="fixedpoint" />
+        <toolbox name="embeddedcoder" />
+        <toolbox name="matlabcoder" />
+      </toolboxes>
+      <toolbox>
+        <matlabhdlcoder>
+          <enabled>true</enabled>
+        </matlabhdlcoder>
+      </toolbox>
+      <toolbox>
+        <fixedpoint>
+          <enabled>true</enabled>
+        </fixedpoint>
+      </toolbox>
+      <toolbox>
+        <embeddedcoder>
+          <enabled>true</enabled>
+        </embeddedcoder>
+      </toolbox>
+      <toolbox>
+        <matlabcoder>
+          <enabled>true</enabled>
+        </matlabcoder>
+      </toolbox>
+    </matlab>
+    <platform>
+      <unix>true</unix>
+      <mac>false</mac>
+      <windows>false</windows>
+      <win2k>false</win2k>
+      <winxp>false</winxp>
+      <vista>false</vista>
+      <linux>true</linux>
+      <solaris>false</solaris>
+      <osver>3.19.0-32-generic</osver>
+      <os32>false</os32>
+      <os64>true</os64>
+      <arch>glnxa64</arch>
+      <matlab>true</matlab>
+    </platform>
+  </configuration>
+</deployment-project>
